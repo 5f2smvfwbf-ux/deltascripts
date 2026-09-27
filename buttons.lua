@@ -8,7 +8,7 @@ return {
         {name = "مهم", order = 3},
         {name = "عشوائي", order = 4}
     },
-    
+
     buttons = {
         -- ==================== تاب اللاعب ====================
         {
@@ -17,121 +17,7 @@ return {
             order = 1,
             code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/free-HD-admin-hacker-island-Fly-V3-X-111485"))()]]
         },
-        {
-            name = "السرعة",
-            tab = "اللاعب",
-            order = 2,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/hsK3Dtij"))()]]
-        },
-        {
-            name = "القفز",
-            tab = "اللاعب",
-            order = 3,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/FqnLehSG"))()]]
-        },
-        
-        -- ==================== تاب ريموتات ====================
-        {
-            name = "مصدر الريموتات",
-            tab = "ريموتات",
-            order = 1,
-            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Turtle-Spy-21930"))()]]
-        },
-        {
-            name = "بحث ريموتات",
-            tab = "ريموتات",
-            order = 2,
-            code = [[local ScreenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-local MainFrame = Instance.new("Frame", ScreenGui)
-local SearchBox = Instance.new("TextBox", MainFrame)
-local Scroll = Instance.new("ScrollingFrame", MainFrame)
-local Layout = Instance.new("UIListLayout", Scroll)
-local MenuBtn = Instance.new("TextButton", ScreenGui)
 
-MainFrame.Size = UDim2.new(0, 280, 0, 350)
-MainFrame.Position = UDim2.new(0.5, -140, 0.4, -175)
-MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-MainFrame.Draggable = true 
-MainFrame.Active = true
-Instance.new("UICorner", MainFrame)
-
-SearchBox.Size = UDim2.new(0.9, 0, 0, 35)
-SearchBox.Position = UDim2.new(0.05, 0, 0.05, 0)
-SearchBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-SearchBox.PlaceholderText = "ابحث عن ريموت لنسخ مساره..."
-SearchBox.Text = ""
-SearchBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-Instance.new("UICorner", SearchBox)
-
-Scroll.Size = UDim2.new(1, -10, 1, -60)
-Scroll.Position = UDim2.new(0, 5, 0, 50)
-Scroll.BackgroundTransparency = 1
-Scroll.ScrollBarThickness = 3
-Layout.Padding = UDim.new(0, 5)
-
-MenuBtn.Size = UDim2.new(0, 50, 0, 50)
-MenuBtn.Position = UDim2.new(0, 10, 0.5, 0)
-MenuBtn.Text = "SCAN"
-MenuBtn.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
-MenuBtn.Draggable = true
-Instance.new("UICorner", MenuBtn).CornerRadius = UDim.new(1, 0)
-MenuBtn.MouseButton1Click:Connect(function() MainFrame.Visible = not MainFrame.Visible end)
-
-local function GetFullName(obj)
-    local path = obj.Name
-    local parent = obj.Parent
-    while parent and parent ~= game do
-        path = parent.Name .. "." .. path
-        parent = parent.Parent
-    end
-    return "game." .. path
-end
-
-local function AddRemoteBtn(remote)
-    local btn = Instance.new("TextButton", Scroll)
-    btn.Size = UDim2.new(1, -10, 0, 35)
-    btn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    btn.Text = remote.Name
-    btn.TextColor3 = Color3.fromRGB(255, 200, 0)
-    Instance.new("UICorner", btn)
-    btn.MouseButton1Click:Connect(function()
-        local fullPath = GetFullName(remote)
-        if setclipboard then
-            setclipboard(fullPath)
-            btn.Text = "تم النسخ! ✅"
-            task.wait(1)
-            btn.Text = remote.Name
-        else
-            print("المسار: " .. fullPath)
-        end
-    end)
-end
-
-local function UpdateSearch()
-    for _, child in pairs(Scroll:GetChildren()) do
-        if child:IsA("TextButton") then child:Destroy() end
-    end
-    local searchText = SearchBox.Text:lower()
-    for _, v in pairs(game:GetDescendants()) do
-        if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) then
-            if searchText == "" or v.Name:lower():find(searchText) then
-                AddRemoteBtn(v)
-            end
-        end
-    end
-    Scroll.CanvasSize = UDim2.new(0, 0, 0, Layout.AbsoluteContentSize.Y)
-end
-
-SearchBox:GetPropertyChangedSignal("Text"):Connect(UpdateSearch)
-UpdateSearch()]]
-        },
-        {
-            name = "مصدر ريموتات 2",
-            tab = "ريموتات",
-            order = 3,
-            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Ketamine-46055"))()]]
-        },
-        
         -- ==================== تاب مهم ====================
         {
             name = "تغيير التيم",
@@ -145,37 +31,7 @@ UpdateSearch()]]
             order = 2,
             code = [[loadstring(game:HttpGet("https://pastebin.com/raw/eR1HPXfw"))()]]
         },
-        {
-            name = "كشف",
-            tab = "مهم",
-            order = 3,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/3QSEqEms"))()]]
-        },
-        {
-            name = "هيد بوكس",
-            tab = "مهم",
-            order = 4,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/NH2jfsuj"))()]]
-        },
-        {
-            name = "هيتبوكس",
-            tab = "مهم",
-            order = 5,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/XHCg7Xha"))()]]
-        },
-        {
-            name = "Vr7",
-            tab = "مهم",
-            order = 6,
-            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-VR7-45290"))()]]
-        },
-        {
-            name = "Gui",
-            tab = "مهم",
-            order = 7,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/JpxyApA7"))()]]
-        },
-        
+
         -- ==================== تاب عشوائي ====================
         {
             name = "ماب الكورة",
@@ -386,6 +242,158 @@ end)]]
             code = [[local StarterGui = game:GetService("StarterGui")
 StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)]]
         },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "كشف",
+            tab = "مهم",
+            order = 3,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/3QSEqEms"))()]]
+        },
+        {
+            name = "هيد بوكس",
+            tab = "مهم",
+            order = 4,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/NH2jfsuj"))()]]
+        },
+        {
+            name = "هيتبوكس",
+            tab = "مهم",
+            order = 5,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/XHCg7Xha"))()]]
+        },
+
+        -- ==================== تاب اللاعب ====================
+        {
+            name = "السرعة",
+            tab = "اللاعب",
+            order = 2,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/hsK3Dtij"))()]]
+        },
+        {
+            name = "القفز",
+            tab = "اللاعب",
+            order = 3,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/FqnLehSG"))()]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
+            name = "مصدر الريموتات",
+            tab = "ريموتات",
+            order = 1,
+            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Turtle-Spy-21930"))()]]
+        },
+        {
+            name = "بحث ريموتات",
+            tab = "ريموتات",
+            order = 2,
+            code = [[local ScreenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+local MainFrame = Instance.new("Frame", ScreenGui)
+local SearchBox = Instance.new("TextBox", MainFrame)
+local Scroll = Instance.new("ScrollingFrame", MainFrame)
+local Layout = Instance.new("UIListLayout", Scroll)
+local MenuBtn = Instance.new("TextButton", ScreenGui)
+
+MainFrame.Size = UDim2.new(0, 280, 0, 350)
+MainFrame.Position = UDim2.new(0.5, -140, 0.4, -175)
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MainFrame.Draggable = true 
+MainFrame.Active = true
+Instance.new("UICorner", MainFrame)
+
+SearchBox.Size = UDim2.new(0.9, 0, 0, 35)
+SearchBox.Position = UDim2.new(0.05, 0, 0.05, 0)
+SearchBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+SearchBox.PlaceholderText = "ابحث عن ريموت لنسخ مساره..."
+SearchBox.Text = ""
+SearchBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+Instance.new("UICorner", SearchBox)
+
+Scroll.Size = UDim2.new(1, -10, 1, -60)
+Scroll.Position = UDim2.new(0, 5, 0, 50)
+Scroll.BackgroundTransparency = 1
+Scroll.ScrollBarThickness = 3
+Layout.Padding = UDim.new(0, 5)
+
+MenuBtn.Size = UDim2.new(0, 50, 0, 50)
+MenuBtn.Position = UDim2.new(0, 10, 0.5, 0)
+MenuBtn.Text = "SCAN"
+MenuBtn.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+MenuBtn.Draggable = true
+Instance.new("UICorner", MenuBtn).CornerRadius = UDim.new(1, 0)
+MenuBtn.MouseButton1Click:Connect(function() MainFrame.Visible = not MainFrame.Visible end)
+
+local function GetFullName(obj)
+    local path = obj.Name
+    local parent = obj.Parent
+    while parent and parent ~= game do
+        path = parent.Name .. "." .. path
+        parent = parent.Parent
+    end
+    return "game." .. path
+end
+
+local function AddRemoteBtn(remote)
+    local btn = Instance.new("TextButton", Scroll)
+    btn.Size = UDim2.new(1, -10, 0, 35)
+    btn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    btn.Text = remote.Name
+    btn.TextColor3 = Color3.fromRGB(255, 200, 0)
+    Instance.new("UICorner", btn)
+    btn.MouseButton1Click:Connect(function()
+        local fullPath = GetFullName(remote)
+        if setclipboard then
+            setclipboard(fullPath)
+            btn.Text = "تم النسخ! ✅"
+            task.wait(1)
+            btn.Text = remote.Name
+        else
+            print("المسار: " .. fullPath)
+        end
+    end)
+end
+
+local function UpdateSearch()
+    for _, child in pairs(Scroll:GetChildren()) do
+        if child:IsA("TextButton") then child:Destroy() end
+    end
+    local searchText = SearchBox.Text:lower()
+    for _, v in pairs(game:GetDescendants()) do
+        if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) then
+            if searchText == "" or v.Name:lower():find(searchText) then
+                AddRemoteBtn(v)
+            end
+        end
+    end
+    Scroll.CanvasSize = UDim2.new(0, 0, 0, Layout.AbsoluteContentSize.Y)
+end
+
+SearchBox:GetPropertyChangedSignal("Text"):Connect(UpdateSearch)
+UpdateSearch()]]
+        },
+        {
+            name = "مصدر ريموتات 2",
+            tab = "ريموتات",
+            order = 3,
+            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Ketamine-46055"))()]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "Vr7",
+            tab = "مهم",
+            order = 6,
+            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-VR7-45290"))()]]
+        },
+        {
+            name = "Gui",
+            tab = "مهم",
+            order = 0,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/JpxyApA7"))()]]
+        },
+
+        -- ==================== تاب عشوائي ====================
         {
             name = "ايم بوت",
             tab = "عشوائي",

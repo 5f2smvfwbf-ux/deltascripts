@@ -1,4 +1,4 @@
--- interface.lua - ملف الواجهة الأساسية (التحديث السريع والتحديد المباشر)
+-- interface.lua - ملف الواجهة الأساسية (النسخة المرتبة والجاهزة)
 local BUTTONS_URL = "https://raw.githubusercontent.com/5f2smvfwbf-ux/deltascripts/main/buttons.lua"
 
 local CoreGui = game:GetService("CoreGui")
@@ -131,6 +131,7 @@ TrashLayout.Padding = UDim.new(0, 5)
 
 TrashButton.MouseButton1Click:Connect(function()
     TrashWindow.Visible = not TrashWindow.Visible
+    SettingsFrame.Visible = false
 end)
 
 local TabsBar = Instance.new("Frame")
@@ -253,6 +254,16 @@ SettingsFrame.Size = UDim2.new(1, 0, 1, -40)
 SettingsFrame.Visible = false
 SettingsFrame.ZIndex = 5
 
+local SettingsLabel = Instance.new("TextLabel", SettingsFrame)
+SettingsLabel.BackgroundTransparency = 1
+SettingsLabel.Position = UDim2.new(0, 15, 0, 20)
+SettingsLabel.Size = UDim2.new(1, -30, 0, 30)
+SettingsLabel.Font = Enum.Font.SourceSansBold
+SettingsLabel.Text = "⚙️ لوحة الإعدادات العامة"
+SettingsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+SettingsLabel.TextSize = 15
+SettingsLabel.TextXAlignment = Enum.TextXAlignment.Left
+
 SettingsButton.MouseButton1Click:Connect(function()
     SettingsFrame.Visible = not SettingsFrame.Visible
     SettingsButton.Text = SettingsFrame.Visible and "✖" or "⚙️"
@@ -262,12 +273,12 @@ end)
 -- زر النسخ الشامل لحفظ التعديلات وجيت هاب
 local CopyAllBtn = Instance.new("TextButton", SettingsFrame)
 CopyAllBtn.BackgroundColor3 = Color3.fromRGB(0, 140, 200)
-CopyAllBtn.Position = UDim2.new(0, 10, 1, -45)
-CopyAllBtn.Size = UDim2.new(1, -20, 0, 35)
+CopyAllBtn.Position = UDim2.new(0, 10, 1, -55)
+CopyAllBtn.Size = UDim2.new(1, -20, 0, 40)
 CopyAllBtn.Font = Enum.Font.SourceSansBold
 CopyAllBtn.Text = "📋 نسخ كافة التابات والأزرار لتحديث GitHub"
 CopyAllBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-CopyAllBtn.TextSize = 12
+CopyAllBtn.TextSize = 13
 CopyAllBtn.ZIndex = 6
 Instance.new("UICorner", CopyAllBtn).CornerRadius = UDim.new(0, 6)
 

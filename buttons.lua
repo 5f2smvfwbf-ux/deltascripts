@@ -18,275 +18,17 @@ return {
             code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/free-HD-admin-hacker-island-Fly-V3-X-111485"))()]]
         },
 
-        -- ==================== تاب مهم ====================
-        {
-            name = "هيتبوكس",
-            tab = "مهم",
-            order = 5,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/XHCg7Xha"))()]]
-        },
-
-        -- ==================== تاب اللاعب ====================
-        {
-            name = "السرعة",
-            tab = "اللاعب",
-            order = 2,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/hsK3Dtij"))()]]
-        },
-
-        -- ==================== تاب مهم ====================
-        {
-            name = "هيد بوكس",
-            tab = "مهم",
-            order = 4,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/NH2jfsuj"))()]]
-        },
-
-        -- ==================== تاب اللاعب ====================
-        {
-            name = "القفز",
-            tab = "اللاعب",
-            order = 3,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/FqnLehSG"))()]]
-        },
-
-        -- ==================== تاب مهم ====================
-        {
-            name = "اوتو كليك",
-            tab = "مهم",
-            order = 2,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/eR1HPXfw"))()]]
-        },
-        {
-            name = "كشف",
-            tab = "مهم",
-            order = 3,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/3QSEqEms"))()]]
-        },
-
         -- ==================== تاب ريموتات ====================
         {
-            name = "اربيجي لوس تاون",
+            name = "كلاشنكوف لوس تاون",
             tab = "ريموتات",
-            order = 4,
+            order = 99,
             code = [[local args = {
-    [1] = "Rocket Launcher",
-    [2] = 0,
-    n = 2,
+	[1] = "Kalashnikov",
+	[2] = 0,
+	n = 2,
 }
 game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
-        },
-
-        -- ==================== تاب مهم ====================
-        {
-            name = "Vr7",
-            tab = "مهم",
-            order = 6,
-            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-VR7-45290"))()]]
-        },
-
-        -- ==================== تاب ريموتات ====================
-        {
-            name = "مصدر الريموتات",
-            tab = "ريموتات",
-            order = 1,
-            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Turtle-Spy-21930"))()]]
-        },
-
-        -- ==================== تاب عشوائي ====================
-        {
-            name = "ماب الكورة",
-            tab = "عشوائي",
-            order = 1,
-            code = [[local Players = game:GetService("Players")
-local CoreGui = game:GetService("CoreGui")
-local RunService = game:GetService("RunService")
-local localPlayer = Players.LocalPlayer
-
-local enabled = false
-local hitboxSize = 12
-local originalProperties = {}
-
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "TouchlineRedHitboxGui"
-ScreenGui.Parent = CoreGui
-
-local MainFrame = Instance.new("Frame")
-MainFrame.Name = "MainFrame"
-MainFrame.Size = UDim2.new(0, 200, 0, 130)
-MainFrame.Position = UDim2.new(0.05, 0, 0.4, 0)
-MainFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-MainFrame.BorderSizePixel = 0
-MainFrame.Active = true
-MainFrame.Draggable = true
-MainFrame.Parent = ScreenGui
-
-local Title = Instance.new("TextLabel")
-Title.Size = UDim2.new(1, 0, 0, 30)
-Title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-Title.Text = "هيدبوكس الكرة (أحمر)"
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.TextSize = 14
-Title.Font = Enum.Font.SourceSansBold
-Title.Parent = MainFrame
-
-local ToggleBtn = Instance.new("TextButton")
-ToggleBtn.Size = UDim2.new(0.9, 0, 0, 35)
-ToggleBtn.Position = UDim2.new(0.05, 0, 0.3, 0)
-ToggleBtn.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
-ToggleBtn.Text = "الحالة: مطفي (OFF)"
-ToggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-ToggleBtn.TextSize = 14
-ToggleBtn.Font = Enum.Font.SourceSansBold
-ToggleBtn.Parent = MainFrame
-
-ToggleBtn.MouseButton1Click:Connect(function()
-    enabled = not enabled
-    if enabled then
-        ToggleBtn.Text = "الحالة: شغال (ON)"
-        ToggleBtn.BackgroundColor3 = Color3.fromRGB(50, 200, 50)
-    else
-        ToggleBtn.Text = "الحالة: مطفي (OFF)"
-        ToggleBtn.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
-        for ball, props in pairs(originalProperties) do
-            if ball and ball.Parent then
-                ball.Size = props.Size
-                ball.Color = props.Color
-                ball.Material = props.Material
-                ball.Transparency = props.Transparency
-            end
-        end
-        originalProperties = {}
-    end
-end)
-
-local SizeBtn = Instance.new("TextButton")
-SizeBtn.Size = UDim2.new(0.9, 0, 0, 35)
-SizeBtn.Position = UDim2.new(0.05, 0, 0.68, 0)
-SizeBtn.BackgroundColor3 = Color3.fromRGB(50, 100, 200)
-SizeBtn.Text = "حجم الهيدبوكس: " .. hitboxSize
-SizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-SizeBtn.TextSize = 14
-SizeBtn.Font = Enum.Font.SourceSansBold
-SizeBtn.Parent = MainFrame
-
-SizeBtn.MouseButton1Click:Connect(function()
-    hitboxSize = hitboxSize + 5
-    if hitboxSize > 35 then hitboxSize = 10 end
-    SizeBtn.Text = "حجم الهيدبوكس: " .. hitboxSize
-end)
-
-RunService.RenderStepped:Connect(function()
-    if not enabled then return end
-    for _, obj in pairs(workspace:GetDescendants()) do
-        if obj:IsA("BasePart") and (obj.Name == "Ball" or obj.Name:lower():match("ball") or obj.Name:lower():match("كورة") or obj.Name:lower():match("كرة")) then
-            if not originalProperties[obj] then
-                originalProperties[obj] = {Size = obj.Size, Color = obj.Color, Material = obj.Material, Transparency = obj.Transparency}
-            end
-            obj.Size = Vector3.new(hitboxSize, hitboxSize, hitboxSize)
-            obj.CanCollide = true
-            obj.Color = Color3.fromRGB(255, 0, 0)
-            obj.Material = Enum.Material.Neon
-            obj.Transparency = 0.3
-        end
-    end
-end)]]
-        },
-        {
-            name = "تدبيل ارينا",
-            tab = "عشوائي",
-            order = 3,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/df4BL9tb"))()]]
-        },
-
-        -- ==================== تاب ريموتات ====================
-        {
-            name = "بحث ريموتات",
-            tab = "ريموتات",
-            order = 20,
-            code = [[local ScreenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-local MainFrame = Instance.new("Frame", ScreenGui)
-local SearchBox = Instance.new("TextBox", MainFrame)
-local Scroll = Instance.new("ScrollingFrame", MainFrame)
-local Layout = Instance.new("UIListLayout", Scroll)
-local MenuBtn = Instance.new("TextButton", ScreenGui)
-
-MainFrame.Size = UDim2.new(0, 280, 0, 350)
-MainFrame.Position = UDim2.new(0.5, -140, 0.4, -175)
-MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-MainFrame.Draggable = true 
-MainFrame.Active = true
-Instance.new("UICorner", MainFrame)
-
-SearchBox.Size = UDim2.new(0.9, 0, 0, 35)
-SearchBox.Position = UDim2.new(0.05, 0, 0.05, 0)
-SearchBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-SearchBox.PlaceholderText = "ابحث عن ريموت لنسخ مساره..."
-SearchBox.Text = ""
-SearchBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-Instance.new("UICorner", SearchBox)
-
-Scroll.Size = UDim2.new(1, -10, 1, -60)
-Scroll.Position = UDim2.new(0, 5, 0, 50)
-Scroll.BackgroundTransparency = 1
-Scroll.ScrollBarThickness = 3
-Layout.Padding = UDim.new(0, 5)
-
-MenuBtn.Size = UDim2.new(0, 50, 0, 50)
-MenuBtn.Position = UDim2.new(0, 10, 0.5, 0)
-MenuBtn.Text = "SCAN"
-MenuBtn.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
-MenuBtn.Draggable = true
-Instance.new("UICorner", MenuBtn).CornerRadius = UDim.new(1, 0)
-MenuBtn.MouseButton1Click:Connect(function() MainFrame.Visible = not MainFrame.Visible end)
-
-local function GetFullName(obj)
-    local path = obj.Name
-    local parent = obj.Parent
-    while parent and parent ~= game do
-        path = parent.Name .. "." .. path
-        parent = parent.Parent
-    end
-    return "game." .. path
-end
-
-local function AddRemoteBtn(remote)
-    local btn = Instance.new("TextButton", Scroll)
-    btn.Size = UDim2.new(1, -10, 0, 35)
-    btn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    btn.Text = remote.Name
-    btn.TextColor3 = Color3.fromRGB(255, 200, 0)
-    Instance.new("UICorner", btn)
-    btn.MouseButton1Click:Connect(function()
-        local fullPath = GetFullName(remote)
-        if setclipboard then
-            setclipboard(fullPath)
-            btn.Text = "تم النسخ! ✅"
-            task.wait(1)
-            btn.Text = remote.Name
-        else
-            print("المسار: " .. fullPath)
-        end
-    end)
-end
-
-local function UpdateSearch()
-    for _, child in pairs(Scroll:GetChildren()) do
-        if child:IsA("TextButton") then child:Destroy() end
-    end
-    local searchText = SearchBox.Text:lower()
-    for _, v in pairs(game:GetDescendants()) do
-        if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) then
-            if searchText == "" or v.Name:lower():find(searchText) then
-                AddRemoteBtn(v)
-            end
-        end
-    end
-    Scroll.CanvasSize = UDim2.new(0, 0, 0, Layout.AbsoluteContentSize.Y)
-end
-
-SearchBox:GetPropertyChangedSignal("Text"):Connect(UpdateSearch)
-UpdateSearch()]]
         },
 
         -- ==================== تاب عشوائي ====================
@@ -299,15 +41,53 @@ UpdateSearch()]]
 
         -- ==================== تاب ريموتات ====================
         {
-            name = "كلاشنكوف لوس تاون",
+            name = "مصدر الريموتات",
             tab = "ريموتات",
-            order = 2,
+            order = 1,
+            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Turtle-Spy-21930"))()]]
+        },
+        {
+            name = "انعاش ليجستي سيتي",
+            tab = "ريموتات",
+            order = 99,
             code = [[local args = {
-	[1] = "Kalashnikov",
-	[2] = 0,
-	n = 2,
+	[1] = "\216\182\217\133\216\167\216\175\216\169",
+	n = 1,
 }
-game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
+game:GetService("ReplicatedStorage"):FindFirstChild("SaLehDev - Events"):FindFirstChild("SaLehDev - BurgerWatery").GiveToolEvent:FireServer(unpack(args, 1, args.n or #args))]]
+        },
+
+        -- ==================== تاب عشوائي ====================
+        {
+            name = "تدبيل ارينا",
+            tab = "عشوائي",
+            order = 3,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/df4BL9tb"))()]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "Gui",
+            tab = "مهم",
+            order = 0,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/JpxyApA7"))()]]
+        },
+
+        -- ==================== تاب عشوائي ====================
+        {
+            name = "اظهار الشنطه",
+            tab = "عشوائي",
+            order = 5,
+            code = [[local StarterGui = game:GetService("StarterGui")
+StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "تغيير التيم",
+            tab = "مهم",
+            order = 1,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/WsJAi93z"))()]]
         },
 
         -- ==================== تاب عشوائي ====================
@@ -403,36 +183,6 @@ btnCopy.MouseButton1Click:Connect(function()
     end
 end)]]
         },
-        {
-            name = "اظهار الشنطه",
-            tab = "عشوائي",
-            order = 5,
-            code = [[local StarterGui = game:GetService("StarterGui")
-StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)]]
-        },
-
-        -- ==================== تاب ريموتات ====================
-        {
-            name = "طلق لوس تاون",
-            tab = "ريموتات",
-            order = 4,
-            code = [[local args = {
-	[1] = "Ammo Box",
-	[2] = 0,
-	n = 2,
-}
-game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
-        },
-
-        -- ==================== تاب مهم ====================
-        {
-            name = "Gui",
-            tab = "مهم",
-            order = 0,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/JpxyApA7"))()]]
-        },
-
-        -- ==================== تاب عشوائي ====================
         {
             name = "ايم بوت",
             tab = "عشوائي",
@@ -545,18 +295,28 @@ end)]]
 
         -- ==================== تاب ريموتات ====================
         {
-            name = "مصدر ريموتات 2",
+            name = "كلبشه ليجستي سيتي",
             tab = "ريموتات",
-            order = 40,
-            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Ketamine-46055"))()]]
+            order = 99,
+            code = [[local args = {
+	[1] = "Handcuffs",
+	n = 1,
+}
+game:GetService("ReplicatedStorage"):FindFirstChild("SaLehDev - Events"):FindFirstChild("SaLehDev - BurgerWatery").GiveToolEvent:FireServer(unpack(args, 1, args.n or #args))]]
         },
 
         -- ==================== تاب مهم ====================
         {
-            name = "تغيير التيم",
+            name = "اوتو كليك",
             tab = "مهم",
-            order = 1,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/WsJAi93z"))()]]
+            order = 2,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/eR1HPXfw"))()]]
+        },
+        {
+            name = "كشف",
+            tab = "مهم",
+            order = 3,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/3QSEqEms"))()]]
         },
 
         -- ==================== تاب ريموتات ====================
@@ -572,6 +332,28 @@ end)]]
 game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
         },
         {
+            name = "مصدر ريموتات 2",
+            tab = "ريموتات",
+            order = 40,
+            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Ketamine-46055"))()]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "هيد بوكس",
+            tab = "مهم",
+            order = 4,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/NH2jfsuj"))()]]
+        },
+        {
+            name = "هيتبوكس",
+            tab = "مهم",
+            order = 5,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/XHCg7Xha"))()]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
             name = "قرنيد لوس تاون",
             tab = "ريموتات",
             order = 6,
@@ -582,25 +364,280 @@ game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args
 }
 game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
         },
+
+        -- ==================== تاب اللاعب ====================
         {
-            name = "انعاش ليجستي سيتي",
-            tab = "ريموتات",
+            name = "السرعة",
+            tab = "اللاعب",
             order = 2,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/hsK3Dtij"))()]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "Vr7",
+            tab = "مهم",
+            order = 6,
+            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-VR7-45290"))()]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
+            name = "طلق لوس تاون",
+            tab = "ريموتات",
+            order = 4,
             code = [[local args = {
-	[1] = "\216\182\217\133\216\167\216\175\216\169",
-	n = 1,
+	[1] = "Ammo Box",
+	[2] = 0,
+	n = 2,
 }
-game:GetService("ReplicatedStorage"):FindFirstChild("SaLehDev - Events"):FindFirstChild("SaLehDev - BurgerWatery").GiveToolEvent:FireServer(unpack(args, 1, args.n or #args))]]
+game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
+        },
+
+        -- ==================== تاب عشوائي ====================
+        {
+            name = "ماب الكورة",
+            tab = "عشوائي",
+            order = 1,
+            code = [[local Players = game:GetService("Players")
+local CoreGui = game:GetService("CoreGui")
+local RunService = game:GetService("RunService")
+local localPlayer = Players.LocalPlayer
+
+local enabled = false
+local hitboxSize = 12
+local originalProperties = {}
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "TouchlineRedHitboxGui"
+ScreenGui.Parent = CoreGui
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Size = UDim2.new(0, 200, 0, 130)
+MainFrame.Position = UDim2.new(0.05, 0, 0.4, 0)
+MainFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+MainFrame.BorderSizePixel = 0
+MainFrame.Active = true
+MainFrame.Draggable = true
+MainFrame.Parent = ScreenGui
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Title.Text = "هيدبوكس الكرة (أحمر)"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 14
+Title.Font = Enum.Font.SourceSansBold
+Title.Parent = MainFrame
+
+local ToggleBtn = Instance.new("TextButton")
+ToggleBtn.Size = UDim2.new(0.9, 0, 0, 35)
+ToggleBtn.Position = UDim2.new(0.05, 0, 0.3, 0)
+ToggleBtn.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+ToggleBtn.Text = "الحالة: مطفي (OFF)"
+ToggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleBtn.TextSize = 14
+ToggleBtn.Font = Enum.Font.SourceSansBold
+ToggleBtn.Parent = MainFrame
+
+ToggleBtn.MouseButton1Click:Connect(function()
+    enabled = not enabled
+    if enabled then
+        ToggleBtn.Text = "الحالة: شغال (ON)"
+        ToggleBtn.BackgroundColor3 = Color3.fromRGB(50, 200, 50)
+    else
+        ToggleBtn.Text = "الحالة: مطفي (OFF)"
+        ToggleBtn.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+        for ball, props in pairs(originalProperties) do
+            if ball and ball.Parent then
+                ball.Size = props.Size
+                ball.Color = props.Color
+                ball.Material = props.Material
+                ball.Transparency = props.Transparency
+            end
+        end
+        originalProperties = {}
+    end
+end)
+
+local SizeBtn = Instance.new("TextButton")
+SizeBtn.Size = UDim2.new(0.9, 0, 0, 35)
+SizeBtn.Position = UDim2.new(0.05, 0, 0.68, 0)
+SizeBtn.BackgroundColor3 = Color3.fromRGB(50, 100, 200)
+SizeBtn.Text = "حجم الهيدبوكس: " .. hitboxSize
+SizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+SizeBtn.TextSize = 14
+SizeBtn.Font = Enum.Font.SourceSansBold
+SizeBtn.Parent = MainFrame
+
+SizeBtn.MouseButton1Click:Connect(function()
+    hitboxSize = hitboxSize + 5
+    if hitboxSize > 35 then hitboxSize = 10 end
+    SizeBtn.Text = "حجم الهيدبوكس: " .. hitboxSize
+end)
+
+RunService.RenderStepped:Connect(function()
+    if not enabled then return end
+    for _, obj in pairs(workspace:GetDescendants()) do
+        if obj:IsA("BasePart") and (obj.Name == "Ball" or obj.Name:lower():match("ball") or obj.Name:lower():match("كورة") or obj.Name:lower():match("كرة")) then
+            if not originalProperties[obj] then
+                originalProperties[obj] = {Size = obj.Size, Color = obj.Color, Material = obj.Material, Transparency = obj.Transparency}
+            end
+            obj.Size = Vector3.new(hitboxSize, hitboxSize, hitboxSize)
+            obj.CanCollide = true
+            obj.Color = Color3.fromRGB(255, 0, 0)
+            obj.Material = Enum.Material.Neon
+            obj.Transparency = 0.3
+        end
+    end
+end)]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
+            name = "اربيجي لوس تاون",
+            tab = "ريموتات",
+            order = 4,
+            code = [[local args = {
+    [1] = "Rocket Launcher",
+    [2] = 0,
+    n = 2,
+}
+game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
+        },
+
+        -- ==================== تاب اللاعب ====================
+        {
+            name = "القفز",
+            tab = "اللاعب",
+            order = 3,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/FqnLehSG"))()]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
+            name = "بحث ريموتات",
+            tab = "ريموتات",
+            order = 20,
+            code = [[local ScreenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+local MainFrame = Instance.new("Frame", ScreenGui)
+local SearchBox = Instance.new("TextBox", MainFrame)
+local Scroll = Instance.new("ScrollingFrame", MainFrame)
+local Layout = Instance.new("UIListLayout", Scroll)
+local MenuBtn = Instance.new("TextButton", ScreenGui)
+
+MainFrame.Size = UDim2.new(0, 280, 0, 350)
+MainFrame.Position = UDim2.new(0.5, -140, 0.4, -175)
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MainFrame.Draggable = true 
+MainFrame.Active = true
+Instance.new("UICorner", MainFrame)
+
+SearchBox.Size = UDim2.new(0.9, 0, 0, 35)
+SearchBox.Position = UDim2.new(0.05, 0, 0.05, 0)
+SearchBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+SearchBox.PlaceholderText = "ابحث عن ريموت لنسخ مساره..."
+SearchBox.Text = ""
+SearchBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+Instance.new("UICorner", SearchBox)
+
+Scroll.Size = UDim2.new(1, -10, 1, -60)
+Scroll.Position = UDim2.new(0, 5, 0, 50)
+Scroll.BackgroundTransparency = 1
+Scroll.ScrollBarThickness = 3
+Layout.Padding = UDim.new(0, 5)
+
+MenuBtn.Size = UDim2.new(0, 50, 0, 50)
+MenuBtn.Position = UDim2.new(0, 10, 0.5, 0)
+MenuBtn.Text = "SCAN"
+MenuBtn.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+MenuBtn.Draggable = true
+Instance.new("UICorner", MenuBtn).CornerRadius = UDim.new(1, 0)
+MenuBtn.MouseButton1Click:Connect(function() MainFrame.Visible = not MainFrame.Visible end)
+
+local function GetFullName(obj)
+    local path = obj.Name
+    local parent = obj.Parent
+    while parent and parent ~= game do
+        path = parent.Name .. "." .. path
+        parent = parent.Parent
+    end
+    return "game." .. path
+end
+
+local function AddRemoteBtn(remote)
+    local btn = Instance.new("TextButton", Scroll)
+    btn.Size = UDim2.new(1, -10, 0, 35)
+    btn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    btn.Text = remote.Name
+    btn.TextColor3 = Color3.fromRGB(255, 200, 0)
+    Instance.new("UICorner", btn)
+    btn.MouseButton1Click:Connect(function()
+        local fullPath = GetFullName(remote)
+        if setclipboard then
+            setclipboard(fullPath)
+            btn.Text = "تم النسخ! ✅"
+            task.wait(1)
+            btn.Text = remote.Name
+        else
+            print("المسار: " .. fullPath)
+        end
+    end)
+end
+
+local function UpdateSearch()
+    for _, child in pairs(Scroll:GetChildren()) do
+        if child:IsA("TextButton") then child:Destroy() end
+    end
+    local searchText = SearchBox.Text:lower()
+    for _, v in pairs(game:GetDescendants()) do
+        if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) then
+            if searchText == "" or v.Name:lower():find(searchText) then
+                AddRemoteBtn(v)
+            end
+        end
+    end
+    Scroll.CanvasSize = UDim2.new(0, 0, 0, Layout.AbsoluteContentSize.Y)
+end
+
+SearchBox:GetPropertyChangedSignal("Text"):Connect(UpdateSearch)
+UpdateSearch()]]
         },
         {
-            name = "كلبشه ليجستي سيتي",
+            name = "تحلل لايف سيتي",
             tab = "ريموتات",
             order = 2,
             code = [[local args = {
-	[1] = "Handcuffs",
-	n = 1,
+	[1] = "Refresh1",
+	[2] = "FirstCity",
+	n = 2,
 }
-game:GetService("ReplicatedStorage"):FindFirstChild("SaLehDev - Events"):FindFirstChild("SaLehDev - BurgerWatery").GiveToolEvent:FireServer(unpack(args, 1, args.n or #args))]]
+game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events"):FindFirstChild("Dev-ServerHandler"):FireServer(unpack(args, 1, args.n or #args))]]
+        },
+        {
+            name = "عتاد الشرطه",
+            tab = "ريموتات",
+            order = 1,
+            code = [[local args = {
+	[1] = "Dev-Market",
+	[2] = "Police",
+	[3] = "Nothing",
+	n = 3,
+}
+game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events").RequestGui:FireServer(unpack(args, 1, args.n or #args))]]
+        },
+        {
+            name = "خزنه لايف",
+            tab = "ريموتات",
+            order = 1,
+            code = [[local args = {
+	[1] = "Dev-Safe",
+	[2] = "",
+	[3] = "Nothing",
+	n = 3,
+}
+game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events").RequestGui:FireServer(unpack(args, 1, args.n or #args))]]
         }
     }
 }

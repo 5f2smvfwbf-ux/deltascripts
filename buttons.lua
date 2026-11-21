@@ -19,192 +19,125 @@ return {
             code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/free-HD-admin-hacker-island-Fly-V3-X-111485"))()]]
         },
 
-        -- ==================== تاب ريموتات ====================
-        {
-            name = "مصدر الريموتات",
-            tab = "ريموتات",
-            order = 1,
-            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Turtle-Spy-21930"))()]]
-        },
-        {
-            name = "تحلل لايف سيتي",
-            tab = "لايف سيتي",
-            order = 2,
-            code = [[local args = {
-	[1] = "Refresh1",
-	[2] = "FirstCity",
-	n = 2,
-}
-game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events"):FindFirstChild("Dev-ServerHandler"):FireServer(unpack(args, 1, args.n or #args))]]
-        },
-
         -- ==================== تاب عشوائي ====================
         {
-            name = "Wars",
+            name = "تليبورت",
             tab = "عشوائي",
-            order = 2,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/KKw7Kedf"))()]]
-        },
-
-        -- ==================== تاب ريموتات ====================
-        {
-            name = "طلق لوس تاون",
-            tab = "ريموتات",
             order = 4,
-            code = [[local args = {
-	[1] = "Ammo Box",
-	[2] = 0,
-	n = 2,
-}
-game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
-        },
-        {
-            name = "اربيجي لوس تاون",
-            tab = "ريموتات",
-            order = 4,
-            code = [[local args = {
-    [1] = "Rocket Launcher",
-    [2] = 0,
-    n = 2,
-}
-game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
-        },
-        {
-            name = "بحث ريموتات",
-            tab = "ريموتات",
-            order = 20,
-            code = [[local ScreenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-local MainFrame = Instance.new("Frame", ScreenGui)
-local SearchBox = Instance.new("TextBox", MainFrame)
-local Scroll = Instance.new("ScrollingFrame", MainFrame)
-local Layout = Instance.new("UIListLayout", Scroll)
-local MenuBtn = Instance.new("TextButton", ScreenGui)
+            code = [[local sg = Instance.new("ScreenGui", game.CoreGui)
 
-MainFrame.Size = UDim2.new(0, 280, 0, 350)
-MainFrame.Position = UDim2.new(0.5, -140, 0.4, -175)
-MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-MainFrame.Draggable = true 
-MainFrame.Active = true
-Instance.new("UICorner", MainFrame)
+local Main = Instance.new("Frame", sg)
+Main.Size = UDim2.new(0, 160, 0, 160)
+Main.Position = UDim2.new(0.05, 0, 0.4, 0)
+Main.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Main.Active = true
+Main.Draggable = true
+Instance.new("UICorner", Main)
 
-SearchBox.Size = UDim2.new(0.9, 0, 0, 35)
-SearchBox.Position = UDim2.new(0.05, 0, 0.05, 0)
-SearchBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-SearchBox.PlaceholderText = "ابحث عن ريموت لنسخ مساره..."
-SearchBox.Text = ""
-SearchBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-Instance.new("UICorner", SearchBox)
+local stroke = Instance.new("UIStroke", Main)
+stroke.Color = Color3.fromRGB(0, 170, 255)
+stroke.Thickness = 1.5
 
-Scroll.Size = UDim2.new(1, -10, 1, -60)
-Scroll.Position = UDim2.new(0, 5, 0, 50)
-Scroll.BackgroundTransparency = 1
-Scroll.ScrollBarThickness = 3
-Layout.Padding = UDim.new(0, 5)
+local title = Instance.new("TextLabel", Main)
+title.Size = UDim2.new(1, 0, 0, 25)
+title.Text = "TP MANAGER"
+title.TextColor3 = Color3.new(1, 1, 1)
+title.Font = Enum.Font.GothamBold
+title.BackgroundTransparency = 1
 
-MenuBtn.Size = UDim2.new(0, 50, 0, 50)
-MenuBtn.Position = UDim2.new(0, 10, 0.5, 0)
-MenuBtn.Text = "SCAN"
-MenuBtn.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
-MenuBtn.Draggable = true
-Instance.new("UICorner", MenuBtn).CornerRadius = UDim.new(1, 0)
-MenuBtn.MouseButton1Click:Connect(function() MainFrame.Visible = not MainFrame.Visible end)
+local savedPos = nil
+local lp = game.Players.LocalPlayer
 
-local function GetFullName(obj)
-    local path = obj.Name
-    local parent = obj.Parent
-    while parent and parent ~= game do
-        path = parent.Name .. "." .. path
-        parent = parent.Parent
+local btnSave = Instance.new("TextButton", Main)
+btnSave.Size = UDim2.new(0.9, 0, 0, 35)
+btnSave.Position = UDim2.new(0.05, 0, 0.2, 0)
+btnSave.Text = "💾 حفظ الموقع"
+btnSave.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+btnSave.TextColor3 = Color3.new(1, 1, 1)
+btnSave.Font = Enum.Font.Gotham
+Instance.new("UICorner", btnSave)
+
+local btnTp = Instance.new("TextButton", Main)
+btnTp.Size = UDim2.new(0.9, 0, 0, 35)
+btnTp.Position = UDim2.new(0.05, 0, 0.45, 0)
+btnTp.Text = "🚀 انتقال للمحفوظ"
+btnTp.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+btnTp.TextColor3 = Color3.new(1, 1, 1)
+btnTp.Font = Enum.Font.Gotham
+Instance.new("UICorner", btnTp)
+
+local btnCopy = Instance.new("TextButton", Main)
+btnCopy.Size = UDim2.new(0.9, 0, 0, 35)
+btnCopy.Position = UDim2.new(0.05, 0, 0.7, 0)
+btnCopy.Text = "📋 نسخ الإحداثيات"
+btnCopy.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+btnCopy.TextColor3 = Color3.new(1, 1, 1)
+btnCopy.Font = Enum.Font.Gotham
+Instance.new("UICorner", btnCopy)
+
+btnSave.MouseButton1Click:Connect(function()
+    local char = lp.Character
+    if char and char:FindFirstChild("HumanoidRootPart") then
+        savedPos = char.HumanoidRootPart.CFrame
+        btnSave.Text = "✅ تم الحفظ!"
+        task.wait(1)
+        btnSave.Text = "💾 حفظ الموقع"
     end
-    return "game." .. path
-end
+end)
 
-local function AddRemoteBtn(remote)
-    local btn = Instance.new("TextButton", Scroll)
-    btn.Size = UDim2.new(1, -10, 0, 35)
-    btn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    btn.Text = remote.Name
-    btn.TextColor3 = Color3.fromRGB(255, 200, 0)
-    Instance.new("UICorner", btn)
-    btn.MouseButton1Click:Connect(function()
-        local fullPath = GetFullName(remote)
+btnTp.MouseButton1Click:Connect(function()
+    local char = lp.Character
+    if char and char:FindFirstChild("HumanoidRootPart") and savedPos then
+        char.HumanoidRootPart.CFrame = savedPos
+    else
+        btnTp.Text = "❌ لا يوجد موقع!"
+        task.wait(1)
+        btnTp.Text = "🚀 انتقال للمحفوظ"
+    end
+end)
+
+btnCopy.MouseButton1Click:Connect(function()
+    local char = lp.Character
+    if char and char:FindFirstChild("HumanoidRootPart") then
+        local pos = char.HumanoidRootPart.Position
+        local coords = string.format("Vector3.new(%.2f, %.2f, %.2f)", pos.X, pos.Y, pos.Z)
         if setclipboard then
-            setclipboard(fullPath)
-            btn.Text = "تم النسخ! ✅"
-            task.wait(1)
-            btn.Text = remote.Name
+            setclipboard(coords)
+            btnCopy.Text = "✅ تم النسخ!"
         else
-            print("المسار: " .. fullPath)
+            btnCopy.Text = "❌ جهازك لا يدعم النسخ"
         end
-    end)
-end
-
-local function UpdateSearch()
-    for _, child in pairs(Scroll:GetChildren()) do
-        if child:IsA("TextButton") then child:Destroy() end
+        task.wait(1)
+        btnCopy.Text = "📋 نسخ الإحداثيات"
     end
-    local searchText = SearchBox.Text:lower()
-    for _, v in pairs(game:GetDescendants()) do
-        if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) then
-            if searchText == "" or v.Name:lower():find(searchText) then
-                AddRemoteBtn(v)
-            end
-        end
-    end
-    Scroll.CanvasSize = UDim2.new(0, 0, 0, Layout.AbsoluteContentSize.Y)
-end
-
-SearchBox:GetPropertyChangedSignal("Text"):Connect(UpdateSearch)
-UpdateSearch()]]
+end)]]
+        },
+        {
+            name = "اظهار الشنطه",
+            tab = "عشوائي",
+            order = 5,
+            code = [[local StarterGui = game:GetService("StarterGui")
+StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)]]
         },
 
-        -- ==================== تاب عشوائي ====================
+        -- ==================== تاب اللاعب ====================
         {
-            name = "تدبيل ارينا",
-            tab = "عشوائي",
+            name = "القفز",
+            tab = "اللاعب",
             order = 3,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/df4BL9tb"))()]]
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/FqnLehSG"))()]]
         },
 
         -- ==================== تاب ريموتات ====================
         {
-            name = "كلبشة لوس تاون",
-            tab = "ريموتات",
-            order = 5,
-            code = [[local args = {
-	[1] = "Handcuffs",
-	[2] = 0,
-	n = 2,
-}
-game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
-        },
-        {
-            name = "قرنيد لوس تاون",
-            tab = "ريموتات",
-            order = 6,
-            code = [[local args = {
-	[1] = "Grenade",
-	[2] = 0,
-	n = 2,
-}
-game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
-        },
-        {
-            name = "مصدر ريموتات 2",
-            tab = "ريموتات",
-            order = 40,
-            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Ketamine-46055"))()]]
-        },
-        {
-            name = "كلاشنكوف لوس تاون",
+            name = "انعاش ليجستي سيتي",
             tab = "ريموتات",
             order = 99,
             code = [[local args = {
-	[1] = "Kalashnikov",
-	[2] = 0,
-	n = 2,
+	[1] = "\216\182\217\133\216\167\216\175\216\169",
+	n = 1,
 }
-game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
+game:GetService("ReplicatedStorage"):FindFirstChild("SaLehDev - Events"):FindFirstChild("SaLehDev - BurgerWatery").GiveToolEvent:FireServer(unpack(args, 1, args.n or #args))]]
         },
 
         -- ==================== تاب عشوائي ====================
@@ -307,148 +240,7 @@ RunService.RenderStepped:Connect(function()
 end)]]
         },
 
-        -- ==================== تاب ريموتات ====================
-        {
-            name = "انعاش ليجستي سيتي",
-            tab = "ريموتات",
-            order = 99,
-            code = [[local args = {
-	[1] = "\216\182\217\133\216\167\216\175\216\169",
-	n = 1,
-}
-game:GetService("ReplicatedStorage"):FindFirstChild("SaLehDev - Events"):FindFirstChild("SaLehDev - BurgerWatery").GiveToolEvent:FireServer(unpack(args, 1, args.n or #args))]]
-        },
-
-        -- ==================== تاب مهم ====================
-        {
-            name = "Gui",
-            tab = "مهم",
-            order = 0,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/JpxyApA7"))()]]
-        },
-        {
-            name = "تغيير التيم",
-            tab = "مهم",
-            order = 1,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/WsJAi93z"))()]]
-        },
-
-        -- ==================== تاب عشوائي ====================
-        {
-            name = "تليبورت",
-            tab = "عشوائي",
-            order = 4,
-            code = [[local sg = Instance.new("ScreenGui", game.CoreGui)
-
-local Main = Instance.new("Frame", sg)
-Main.Size = UDim2.new(0, 160, 0, 160)
-Main.Position = UDim2.new(0.05, 0, 0.4, 0)
-Main.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-Main.Active = true
-Main.Draggable = true
-Instance.new("UICorner", Main)
-
-local stroke = Instance.new("UIStroke", Main)
-stroke.Color = Color3.fromRGB(0, 170, 255)
-stroke.Thickness = 1.5
-
-local title = Instance.new("TextLabel", Main)
-title.Size = UDim2.new(1, 0, 0, 25)
-title.Text = "TP MANAGER"
-title.TextColor3 = Color3.new(1, 1, 1)
-title.Font = Enum.Font.GothamBold
-title.BackgroundTransparency = 1
-
-local savedPos = nil
-local lp = game.Players.LocalPlayer
-
-local btnSave = Instance.new("TextButton", Main)
-btnSave.Size = UDim2.new(0.9, 0, 0, 35)
-btnSave.Position = UDim2.new(0.05, 0, 0.2, 0)
-btnSave.Text = "💾 حفظ الموقع"
-btnSave.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-btnSave.TextColor3 = Color3.new(1, 1, 1)
-btnSave.Font = Enum.Font.Gotham
-Instance.new("UICorner", btnSave)
-
-local btnTp = Instance.new("TextButton", Main)
-btnTp.Size = UDim2.new(0.9, 0, 0, 35)
-btnTp.Position = UDim2.new(0.05, 0, 0.45, 0)
-btnTp.Text = "🚀 انتقال للمحفوظ"
-btnTp.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-btnTp.TextColor3 = Color3.new(1, 1, 1)
-btnTp.Font = Enum.Font.Gotham
-Instance.new("UICorner", btnTp)
-
-local btnCopy = Instance.new("TextButton", Main)
-btnCopy.Size = UDim2.new(0.9, 0, 0, 35)
-btnCopy.Position = UDim2.new(0.05, 0, 0.7, 0)
-btnCopy.Text = "📋 نسخ الإحداثيات"
-btnCopy.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-btnCopy.TextColor3 = Color3.new(1, 1, 1)
-btnCopy.Font = Enum.Font.Gotham
-Instance.new("UICorner", btnCopy)
-
-btnSave.MouseButton1Click:Connect(function()
-    local char = lp.Character
-    if char and char:FindFirstChild("HumanoidRootPart") then
-        savedPos = char.HumanoidRootPart.CFrame
-        btnSave.Text = "✅ تم الحفظ!"
-        task.wait(1)
-        btnSave.Text = "💾 حفظ الموقع"
-    end
-end)
-
-btnTp.MouseButton1Click:Connect(function()
-    local char = lp.Character
-    if char and char:FindFirstChild("HumanoidRootPart") and savedPos then
-        char.HumanoidRootPart.CFrame = savedPos
-    else
-        btnTp.Text = "❌ لا يوجد موقع!"
-        task.wait(1)
-        btnTp.Text = "🚀 انتقال للمحفوظ"
-    end
-end)
-
-btnCopy.MouseButton1Click:Connect(function()
-    local char = lp.Character
-    if char and char:FindFirstChild("HumanoidRootPart") then
-        local pos = char.HumanoidRootPart.Position
-        local coords = string.format("Vector3.new(%.2f, %.2f, %.2f)", pos.X, pos.Y, pos.Z)
-        if setclipboard then
-            setclipboard(coords)
-            btnCopy.Text = "✅ تم النسخ!"
-        else
-            btnCopy.Text = "❌ جهازك لا يدعم النسخ"
-        end
-        task.wait(1)
-        btnCopy.Text = "📋 نسخ الإحداثيات"
-    end
-end)]]
-        },
-        {
-            name = "اظهار الشنطه",
-            tab = "عشوائي",
-            order = 5,
-            code = [[local StarterGui = game:GetService("StarterGui")
-StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)]]
-        },
-
-        -- ==================== تاب مهم ====================
-        {
-            name = "اوتو كليك",
-            tab = "مهم",
-            order = 2,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/eR1HPXfw"))()]]
-        },
-        {
-            name = "كشف",
-            tab = "مهم",
-            order = 3,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/3QSEqEms"))()]]
-        },
-
-        -- ==================== تاب ريموتات ====================
+        -- ==================== تاب لايف سيتي ====================
         {
             name = "عتاد الشرطه",
             tab = "لايف سيتي",
@@ -462,12 +254,12 @@ StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)]]
 game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events").RequestGui:FireServer(unpack(args, 1, args.n or #args))]]
         },
 
-        -- ==================== تاب مهم ====================
+        -- ==================== تاب اللاعب ====================
         {
-            name = "هيد بوكس",
-            tab = "مهم",
-            order = 4,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/NH2jfsuj"))()]]
+            name = "السرعة",
+            tab = "اللاعب",
+            order = 2,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/hsK3Dtij"))()]]
         },
 
         -- ==================== تاب ريموتات ====================
@@ -480,44 +272,6 @@ game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events").RequestGui:Fir
 	n = 1,
 }
 game:GetService("ReplicatedStorage"):FindFirstChild("SaLehDev - Events"):FindFirstChild("SaLehDev - BurgerWatery").GiveToolEvent:FireServer(unpack(args, 1, args.n or #args))]]
-        },
-
-        -- ==================== تاب مهم ====================
-        {
-            name = "هيتبوكس",
-            tab = "مهم",
-            order = 5,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/XHCg7Xha"))()]]
-        },
-
-        -- ==================== تاب اللاعب ====================
-        {
-            name = "السرعة",
-            tab = "اللاعب",
-            order = 2,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/hsK3Dtij"))()]]
-        },
-
-        -- ==================== تاب ريموتات ====================
-        {
-            name = "خزنه لايف",
-            tab = "لايف سيتي",
-            order = 1,
-            code = [[local args = {
-	[1] = "Dev-Safe",
-	[2] = "",
-	[3] = "Nothing",
-	n = 3,
-}
-game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events").RequestGui:FireServer(unpack(args, 1, args.n or #args))]]
-        },
-
-        -- ==================== تاب مهم ====================
-        {
-            name = "Vr7",
-            tab = "مهم",
-            order = 6,
-            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-VR7-45290"))()]]
         },
 
         -- ==================== تاب عشوائي ====================
@@ -631,15 +385,269 @@ game:GetService("RunService").RenderStepped:Connect(function()
 end)]]
         },
 
-        -- ==================== تاب اللاعب ====================
+        -- ==================== تاب لايف سيتي ====================
         {
-            name = "القفز",
-            tab = "اللاعب",
-            order = 3,
-            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/FqnLehSG"))()]]
+            name = "خزنه لايف",
+            tab = "لايف سيتي",
+            order = 1,
+            code = [[local args = {
+	[1] = "Dev-Safe",
+	[2] = "",
+	[3] = "Nothing",
+	n = 3,
+}
+game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events").RequestGui:FireServer(unpack(args, 1, args.n or #args))]]
         },
 
         -- ==================== تاب ريموتات ====================
+        {
+            name = "كلاشنكوف لوس تاون",
+            tab = "ريموتات",
+            order = 99,
+            code = [[local args = {
+	[1] = "Kalashnikov",
+	[2] = 0,
+	n = 2,
+}
+game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "Gui",
+            tab = "مهم",
+            order = 0,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/eh4YpUGp"))()]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
+            name = "طلق لوس تاون",
+            tab = "ريموتات",
+            order = 4,
+            code = [[local args = {
+	[1] = "Ammo Box",
+	[2] = 0,
+	n = 2,
+}
+game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "اوتو كليك",
+            tab = "مهم",
+            order = 2,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/eR1HPXfw"))()]]
+        },
+        {
+            name = "كشف",
+            tab = "مهم",
+            order = 3,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/3QSEqEms"))()]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
+            name = "قرنيد لوس تاون",
+            tab = "ريموتات",
+            order = 6,
+            code = [[local args = {
+	[1] = "Grenade",
+	[2] = 0,
+	n = 2,
+}
+game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
+        },
+
+        -- ==================== تاب عشوائي ====================
+        {
+            name = "Wars",
+            tab = "عشوائي",
+            order = 2,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/KKw7Kedf"))()]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "تغيير التيم",
+            tab = "مهم",
+            order = 1,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/WsJAi93z"))()]]
+        },
+
+        -- ==================== تاب لايف سيتي ====================
+        {
+            name = "تحلل لايف سيتي",
+            tab = "لايف سيتي",
+            order = 2,
+            code = [[local args = {
+	[1] = "Refresh1",
+	[2] = "FirstCity",
+	n = 2,
+}
+game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events"):FindFirstChild("Dev-ServerHandler"):FireServer(unpack(args, 1, args.n or #args))]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
+            name = "مصدر الريموتات",
+            tab = "ريموتات",
+            order = 1,
+            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Turtle-Spy-21930"))()]]
+        },
+        {
+            name = "مصدر ريموتات 2",
+            tab = "ريموتات",
+            order = 40,
+            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Ketamine-46055"))()]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "هيد بوكس",
+            tab = "مهم",
+            order = 4,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/NH2jfsuj"))()]]
+        },
+        {
+            name = "هيتبوكس",
+            tab = "مهم",
+            order = 5,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/XHCg7Xha"))()]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
+            name = "اربيجي لوس تاون",
+            tab = "ريموتات",
+            order = 4,
+            code = [[local args = {
+    [1] = "Rocket Launcher",
+    [2] = 0,
+    n = 2,
+}
+game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
+        },
+        {
+            name = "كلبشة لوس تاون",
+            tab = "ريموتات",
+            order = 5,
+            code = [[local args = {
+	[1] = "Handcuffs",
+	[2] = 0,
+	n = 2,
+}
+game:GetService("ReplicatedStorage").SoobiaEvent:FireServer(unpack(args, 1, args.n or #args))]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "Vr7",
+            tab = "مهم",
+            order = 6,
+            code = [[loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-VR7-45290"))()]]
+        },
+
+        -- ==================== تاب ريموتات ====================
+        {
+            name = "بحث ريموتات",
+            tab = "ريموتات",
+            order = 20,
+            code = [[local ScreenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+local MainFrame = Instance.new("Frame", ScreenGui)
+local SearchBox = Instance.new("TextBox", MainFrame)
+local Scroll = Instance.new("ScrollingFrame", MainFrame)
+local Layout = Instance.new("UIListLayout", Scroll)
+local MenuBtn = Instance.new("TextButton", ScreenGui)
+
+MainFrame.Size = UDim2.new(0, 280, 0, 350)
+MainFrame.Position = UDim2.new(0.5, -140, 0.4, -175)
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MainFrame.Draggable = true 
+MainFrame.Active = true
+Instance.new("UICorner", MainFrame)
+
+SearchBox.Size = UDim2.new(0.9, 0, 0, 35)
+SearchBox.Position = UDim2.new(0.05, 0, 0.05, 0)
+SearchBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+SearchBox.PlaceholderText = "ابحث عن ريموت لنسخ مساره..."
+SearchBox.Text = ""
+SearchBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+Instance.new("UICorner", SearchBox)
+
+Scroll.Size = UDim2.new(1, -10, 1, -60)
+Scroll.Position = UDim2.new(0, 5, 0, 50)
+Scroll.BackgroundTransparency = 1
+Scroll.ScrollBarThickness = 3
+Layout.Padding = UDim.new(0, 5)
+
+MenuBtn.Size = UDim2.new(0, 50, 0, 50)
+MenuBtn.Position = UDim2.new(0, 10, 0.5, 0)
+MenuBtn.Text = "SCAN"
+MenuBtn.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+MenuBtn.Draggable = true
+Instance.new("UICorner", MenuBtn).CornerRadius = UDim.new(1, 0)
+MenuBtn.MouseButton1Click:Connect(function() MainFrame.Visible = not MainFrame.Visible end)
+
+local function GetFullName(obj)
+    local path = obj.Name
+    local parent = obj.Parent
+    while parent and parent ~= game do
+        path = parent.Name .. "." .. path
+        parent = parent.Parent
+    end
+    return "game." .. path
+end
+
+local function AddRemoteBtn(remote)
+    local btn = Instance.new("TextButton", Scroll)
+    btn.Size = UDim2.new(1, -10, 0, 35)
+    btn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    btn.Text = remote.Name
+    btn.TextColor3 = Color3.fromRGB(255, 200, 0)
+    Instance.new("UICorner", btn)
+    btn.MouseButton1Click:Connect(function()
+        local fullPath = GetFullName(remote)
+        if setclipboard then
+            setclipboard(fullPath)
+            btn.Text = "تم النسخ! ✅"
+            task.wait(1)
+            btn.Text = remote.Name
+        else
+            print("المسار: " .. fullPath)
+        end
+    end)
+end
+
+local function UpdateSearch()
+    for _, child in pairs(Scroll:GetChildren()) do
+        if child:IsA("TextButton") then child:Destroy() end
+    end
+    local searchText = SearchBox.Text:lower()
+    for _, v in pairs(game:GetDescendants()) do
+        if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) then
+            if searchText == "" or v.Name:lower():find(searchText) then
+                AddRemoteBtn(v)
+            end
+        end
+    end
+    Scroll.CanvasSize = UDim2.new(0, 0, 0, Layout.AbsoluteContentSize.Y)
+end
+
+SearchBox:GetPropertyChangedSignal("Text"):Connect(UpdateSearch)
+UpdateSearch()]]
+        },
+
+        -- ==================== تاب عشوائي ====================
+        {
+            name = "تدبيل ارينا",
+            tab = "عشوائي",
+            order = 3,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/df4BL9tb"))()]]
+        },
+
+        -- ==================== تاب لايف سيتي ====================
         {
             name = "سيارة رباعيه لايف",
             tab = "لايف سيتي",
@@ -650,6 +658,36 @@ end)]]
     n = 2,
 }
 game:GetService("ReplicatedStorage"):FindFirstChild("Dev-Events"):FindFirstChild("Dev-RentCars"):FireServer(unpack(args, 1, args.n or #args))]]
+        },
+
+        -- ==================== تاب مهم ====================
+        {
+            name = "Esp Backpack",
+            tab = "مهم",
+            order = 1,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/F8kXHHrt"))()]]
+        },
+
+        -- ==================== تاب عشوائي ====================
+        {
+            name = "نقطة ايم",
+            tab = "عشوائي",
+            order = 7,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/tvAPT8ZM"))()]]
+        },
+
+        -- ==================== تاب لايف سيتي ====================
+        {
+            name = "مهمة المخدرات",
+            tab = "لايف سيتي",
+            order = 3,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/KN77UvQQ"))()]]
+        },
+        {
+            name = "تفريم لايف",
+            tab = "لايف سيتي",
+            order = 4,
+            code = [[loadstring(game:HttpGet("https://pastebin.com/raw/xB9PhsY1"))()]]
         }
     }
 }
